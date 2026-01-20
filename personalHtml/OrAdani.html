@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>אור עדני | דף אישי</title>
+
+  <link rel="stylesheet" href="../assets/css/style.css" />
+</head>
+
+<body>
+
+  <nav class="navbar" id="navbar">
+    <div class="nav-container">
+
+      <a class="logo" href="../index.html" aria-label="דף הבית">
+        <img class="logo-img" src="../assets/images/Logo.png" alt="לוגו פרויקט סדנה" />
+      </a>
+
+      <button class="nav-toggle" id="navToggle" aria-label="פתח תפריט">☰</button>
+
+     <ul class="nav-links">
+        <li><a href="../index.html">בית</a></li>
+        <li><a href="../OurTeam.html">הצוות שלנו</a></li>
+        <li><a href="../register.php">הרשמה</a></li>
+        <li><a href="../login.php">התחברות</a></li>
+        <li><a href="../mainDashboard.php">לוח בקרה</a></li>
+        <li><a href="../studentsManagment.php">ניהול סטודנטים</a></li>
+        <li><a href="../courseManagment.php">ניהול קורסים</a></li>
+        <li><a href="../enroll.php">רישום לקורסים</a></li>
+        <li><a href="../profile.php">פרופיל משתמש</a></li>
+      </ul>
+
+      <button id="themeToggleBtn" class="nav-btn" type="button" aria-label="החלפת מצב תצוגה">🌓</button>
+    </div>
+  </nav>
+
+  <header class="main-header">
+    <h1>אור עדני</h1>
+    <p class="subtitle">סטודנטית להנדסת מחשבים | צוות פרויקט סדנה אינטגרטיבית</p>
+  </header>
+
+  <main>
+
+    <section class="profile-section">
+      <img src="../assets/images/Or.png" alt="תמונת פרופיל אור" class="profile-img" />
+
+      <div>
+        <h2 style="margin-bottom: 10px; color: var(--primary-color);">קצת עליי</h2>
+        <p style="opacity: 0.9;">
+          סטודנטית להנדסת מחשבים, משלבת פיתוח תוכנה עם חשיבה מוצרית ועיצוב חוויית משתמש.
+          בעלת ניסיון בפרויקטים צד־לקוח וצד־שרת, הקפדה על קוד נקי, עבודה מסודרת ופתרונות
+          ממוקדי משתמש.
+        </p>
+      </div>
+    </section>
+
+    <section class="contact-section">
+      <h2>יצירת קשר</h2>
+
+      <form id="memberContactForm">
+        <div class="form-group">
+          <label for="name">שם מלא</label>
+          <input type="text" id="name" required placeholder="הקלד/י את שמך" />
+        </div>
+
+        <div class="form-group">
+          <label for="email">אימייל</label>
+          <input type="email" id="email" required placeholder="name@example.com" />
+        </div>
+
+        <div class="form-group">
+          <label for="message">הודעה</label>
+          <textarea id="message" rows="4" required placeholder="מה תרצה/י לכתוב לאור?"></textarea>
+        </div>
+
+        <button type="submit">שלח</button>
+        <p id="formResult" style="margin-top: 12px; font-weight: 700;"></p>
+      </form>
+    </section>
+
+  </main>
+  <footer class="main-footer">
+    © <span id="yearSpan"></span> אור עדני | כל הזכויות שמורות
+  </footer>
+  <script src="../assets/js/main.js"></script>
+  <script src="../assets/js/member-script.js"></script>
+</body>
+</html>

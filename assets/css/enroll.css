@@ -1,0 +1,191 @@
+/* בסיס */
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  margin: 0;
+  padding: 0;
+  background-color: #f4f4f4;
+  color: #333;
+}
+
+.main-header {
+  text-align: center;
+  padding: 20px;
+  background: #1e90ff;
+  color: white;
+}
+
+.subtitle {
+  margin: 6px 0 0;
+  font-size: 0.95rem;
+  opacity: 0.95;
+}
+
+#themeToggleBtn {
+  margin-top: 12px;
+  padding: 8px 16px;
+  border: none;
+  cursor: pointer;
+  border-radius: 6px;
+}
+
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 20px;
+  display: grid;
+  gap: 18px;
+}
+
+.card {
+  background: #fff;
+  border-radius: 10px;
+  padding: 18px;
+}
+
+.subtitle-small {
+  margin-top: -6px;
+  opacity: 0.8;
+  font-size: 0.9rem;
+}
+
+.form-group {
+  margin-bottom: 14px;
+}
+
+label {
+  display: block;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+
+input, select, button {
+  font-family: inherit;
+}
+
+input[type="text"], select {
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+.hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 0.85rem;
+  opacity: 0.75;
+}
+
+.form-row {
+  display: flex;
+  gap: 12px;
+}
+
+.form-row .form-group {
+  flex: 1;
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.checkbox-group label {
+  margin: 0;
+  font-weight: 500;
+}
+
+.actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+button {
+  border: none;
+  cursor: pointer;
+  border-radius: 8px;
+  padding: 10px 14px;
+}
+
+.primary {
+  background: #1e90ff;
+  color: white;
+}
+
+.secondary {
+  background: #e7e7e7;
+}
+
+.danger {
+  background: #ff4d4d;
+  color: white;
+  margin-top: 10px;
+}
+
+.result {
+  margin-top: 12px;
+  font-weight: 700;
+}
+
+.enroll-list {
+  margin: 10px 0 0;
+  padding: 0 18px 0 0;
+}
+
+.enroll-list li {
+  padding: 8px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.main-footer {
+  text-align: center;
+  padding: 10px;
+  background: #ddd;
+  font-size: 0.9rem;
+}
+
+/* רספונסיביות */
+@media (max-width: 700px) {
+  main {
+    padding: 14px;
+  }
+  .form-row {
+    flex-direction: column;
+  }
+  #themeToggleBtn {
+    width: 100%;
+  }
+}
+
+/* מצב לילה */
+body.dark-mode {
+  background-color: #121212;
+  color: #f0f0f0;
+}
+
+body.dark-mode .main-header {
+  background: #333;
+}
+
+body.dark-mode .card {
+  background: #1f1f1f;
+}
+
+body.dark-mode .main-footer {
+  background: #222;
+}
+
+body.dark-mode input[type="text"],
+body.dark-mode select {
+  background: #141414;
+  color: #f0f0f0;
+  border-color: #444;
+}
+
+body.dark-mode .secondary {
+  background: #2b2b2b;
+  color: #f0f0f0;
+}
