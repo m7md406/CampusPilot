@@ -1,5 +1,7 @@
 
-<?php include __DIR__ . "/includes/navbar.php"; ?>
+
+
+
 <!doctype html>
 <html lang="he" dir="rtl">
 <head>
@@ -11,7 +13,7 @@
 </head>
 
 <body>
-
+<?php include __DIR__ . "/includes/navbar.php"; ?>
   <header class="main-header">
     <h1>ברוכים הבאים ל-CampusPilot</h1>
     <p class="subtitle">
@@ -56,10 +58,10 @@
   <h2>יצירת קשר עם אחראית הצוות</h2>
   <p>יש שאלה או הערה? אפשר להשאיר הודעה ונחזור אליכם.</p>
 
- <form id="contactForm"
-      action="mailto:ortalia2108@gmail.com"
+<form id="contactForm"
+      action="send_mail.php"
       method="post"
-      enctype="text/plain"
+      enctype="multipart/form-data"
       autocomplete="on">
 
   <fieldset style="border: 1px solid #ddd; padding: 15px; border-radius: 12px;">
@@ -157,10 +159,10 @@
 </form>
 
   <div id="leadBox" style="margin-top:20px;">
-    <h3>אחראית הצוות</h3>
+    <h3>אחראי הצוות</h3>
     <ul>
-      <li><strong>שם:</strong> אור טל עדני</li>
-      <li><strong>מייל:</strong> <a href="mailto:ortalia2108@gmail.com">ortalia2108@gmail.com</a></li>
+      <li><strong>שם:</strong> ארטיום גרינברג</li>
+      <li><strong>מייל:</strong> <a href="mailto:artiomg615@gmail.com">artiomg615@gmail.com</a></li>
       <li><strong>טלפון:</strong> 050-3520524</li>
     </ul>
   </div>

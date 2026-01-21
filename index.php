@@ -12,18 +12,7 @@
 
 <body>
 
-<nav class="navbar" id="navbar">
-  <div class="nav-container">
 
-    <a class="logo" href="index.php" aria-label="דף הבית">
-      <img class="logo-img" src="assets/images/Logo.png" alt="לוגו פרויקט סדנה" />
-    </a>
-
-    <button class="nav-toggle" id="navToggle" aria-label="פתח תפריט">☰</button>
-
-    <button id="themeToggleBtn" class="nav-btn" type="button" aria-label="החלפת מצב תצוגה">🌓</button>
-  </div>
-</nav>
 
 <header class="main-header">
   <h1>ברוכים הבאים ל-CampusPilot</h1>

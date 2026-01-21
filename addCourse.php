@@ -1,11 +1,13 @@
 <?php
 header('Content-Type: text/html; charset=UTF-8');
 require_once __DIR__ . "/includes/db_connect.php";
-<?php require_once __DIR__ . "/includes/navbar.php"; ?>
-
+require_once __DIR__ . "/includes/navbar.php";
 
 $errors = [];
 $success = false;
+
+
+
 
 if ($_SERVER["REQUEST_METHOD"] === "POST") {
     $courseCode = trim($_POST["course_code"] ?? "");
@@ -52,6 +54,7 @@ function h($v) {
     return htmlspecialchars((string)$v, ENT_QUOTES, "UTF-8");
 }
 ?>
+
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
 <head>
@@ -62,13 +65,7 @@ function h($v) {
 </head>
 
 <body>
-  <nav class="navbar">
-    <div class="nav-container">
-      <a class="logo" href="index.html">
-        <img class="logo-img" src="assets/images/Logo.png" alt="CampusPilot" />
-      </a>
-    </div>
-  </nav>
+
 
   <main class="card" style="max-width:520px; margin:40px auto;">
     <h1>הוספת קורס</h1>

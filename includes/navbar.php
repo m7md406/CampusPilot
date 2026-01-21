@@ -1,21 +1,9 @@
 <?php
-$authPath = __DIR__ . "/auth.php";
-if (!file_exists($authPath)) {
-    die("auth.php לא נמצא בנתיב: " . $authPath);
-}
-require_once $authPath;
+require_once __DIR__ . "/auth.php";
 
 $logged = function_exists('is_logged_in') ? is_logged_in() : false;
+$role = function_exists('current_role') ? current_role() : 'Guest';
 
-$role = 'Guest';
-if (function_exists('current_role')) {
-    $role = current_role();
-} elseif (function_exists('role')) {
-    $role = role();
-}
-
-
-// תפריטים לפי תפקיד
 $menuGuest = [
   ["index.php", "בית"],
   ["OurTeam.php", "הצוות שלנו"],
@@ -26,7 +14,6 @@ $menuGuest = [
 $menuStudent = [
   ["index.php", "בית"],
   ["mainDashboard.php", "לוח בקרה"],
-  ["courses.php", "קורסים"],
   ["enroll.php", "רישום לקורסים"],
   ["profile.php", "פרופיל משתמש"],
 ];
@@ -36,7 +23,6 @@ $menuStaff = [
   ["mainDashboard.php", "לוח בקרה"],
   ["studentsManagment.php", "צפייה בסטודנטים"],
   ["courseManagment.php", "ניהול קורסים"],
-  ["enroll.php", "רישום לקורסים"],
   ["profile.php", "פרופיל משתמש"],
 ];
 
@@ -45,28 +31,29 @@ $menuAdmin = [
   ["mainDashboard.php", "לוח בקרה"],
   ["studentsManagment.php", "ניהול סטודנטים"],
   ["courseManagment.php", "ניהול קורסים"],
-  ["enroll.php", "רישום לקורסים"],
   ["profile.php", "פרופיל משתמש"],
 ];
 
 $menu = $menuGuest;
 if ($logged) {
-    if ($role === "Admin") $menu = $menuAdmin;
-    elseif ($role === "Staff") $menu = $menuStaff;
-    else $menu = $menuStudent;
+  if ($role === "Admin") $menu = $menuAdmin;
+  elseif ($role === "Staff") $menu = $menuStaff;
+  else $menu = $menuStudent;
 }
 ?>
-<nav class="navbar" id="navbar">
+
+<nav class="navbar">
   <div class="nav-container">
-    <a class="logo" href="index.php" aria-label="דף הבית">
-      <img class="logo-img" src="assets/images/Logo.png" alt="לוגו CampusPilot" />
+
+    <a href="index.php" class="logo">
+      <img src="assets/images/Logo.png" class="logo-img" alt="CampusPilot">
     </a>
 
-    <button class="nav-toggle" id="navToggle" aria-label="פתח/סגור תפריט">☰</button>
+    <button class="nav-toggle" id="navToggle">☰</button>
 
     <ul class="nav-links" id="navLinks">
       <?php foreach ($menu as [$href, $text]): ?>
-        <li><a href="<?= htmlspecialchars($href) ?>"><?= htmlspecialchars($text) ?></a></li>
+        <li><a href="<?= $href ?>"><?= $text ?></a></li>
       <?php endforeach; ?>
 
       <?php if ($logged): ?>
@@ -74,6 +61,7 @@ if ($logged) {
       <?php endif; ?>
     </ul>
 
-    <button id="themeToggleBtn" class="nav-btn" type="button" aria-label="החלפת מצב תצוגה">🌓</button>
+    <button id="themeToggleBtn">🌓</button>
+
   </div>
 </nav>
