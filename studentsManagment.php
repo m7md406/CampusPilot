@@ -1,6 +1,6 @@
 <?php
 // 1. חיבור למסד הנתונים (מוודא שהנתיב לקובץ שיצרנו נכון)
-include '../includes/db_connect.php';
+require_once __DIR__ . "/includes/db_connect.php";
 require_once __DIR__ . "/includes/auth.php";
 require_once __DIR__ . "/includes/navbar.php";
 require_role(["Staff"]);
@@ -10,18 +10,18 @@ header('Content-Type: text/html; charset=UTF-8');
 // 2. לוגיקה להוספת סטודנט - מתבצעת כשהמשתמש לוחץ על כפתור השליחה
 $message = "";
 if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_student'])) {
-    // קבלת נתונים מהטופס
+
     $full_name = $conn->real_escape_string($_POST['name']);
     $student_id = $conn->real_escape_string($_POST['id']);
-    $year = $conn->real_escape_string($_POST['year']);
-    $department = "כללי"; // ניתן להוסיף שדה כזה בטופס כדי שיהיו 4 שדות כנדרש
+    $year = $conn->real_escape_string($_POST['study_year']);
+    $department = "כללי";
 
-    // שאילתת הוספה (INSERT)
-    $sql = "INSERT INTO students (full_name, student_external_id, year, department) 
+    $sql = "INSERT INTO students (full_name, student_external_id, study_year, department) 
             VALUES ('$full_name', '$student_id', '$year', '$department')";
 
     if ($conn->query($sql) === TRUE) {
-        $message = "הסטודנט נוסף בהצלחה!";
+        header("Location: studentsManagment.php?success=1");
+        exit;
     } else {
         $message = "שגיאה: " . $conn->error;
     }
@@ -49,7 +49,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_student'])) {
   <main>
     <div class="search-section">
         <input type="text" id="searchInput" placeholder="חפש לפי שם...">
-        <button onclick="searchStudent()">חפש</button>
+        <button type="button" onclick="searchStudent()">חפש</button>
     </div>
 
     <hr>
@@ -58,7 +58,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_student'])) {
     <form method="POST" action="studentsManagment.php">
         <input type="text" name="name" placeholder="שם מלא" required>
         <input type="text" name="id" placeholder="תעודת זהות" required>
-        <input type="text" name="year" placeholder="שנת לימוד" required>
+        <input type="text" name="study_year" placeholder="שנת לימוד" required>
         <button type="submit" name="add_student">הוסף למערכת</button>
     </form>
 
@@ -79,13 +79,16 @@ if ($_SERVER["REQUEST_METHOD"] == "POST" && isset($_POST['add_student'])) {
             // שליפת הנתונים מהטבלה (SELECT)
             $sql_select = "SELECT * FROM students ORDER BY id DESC";
             $result = $conn->query($sql_select);
+            if ($result === false) {
+    			die("שגיאה בשאילתת SELECT: " . $conn->error);
+			}
 
             if ($result->num_rows > 0) {
                 while($row = $result->fetch_assoc()) {
                     echo "<tr>";
                     echo "<td>" . htmlspecialchars($row['full_name']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['student_external_id']) . "</td>";
-                    echo "<td>" . htmlspecialchars($row['year']) . "</td>";
+                    echo "<td>" . htmlspecialchars($row['study_year']) . "</td>";
                     echo "<td>" . htmlspecialchars($row['department']) . "</td>";
                     echo "</tr>";
                 }

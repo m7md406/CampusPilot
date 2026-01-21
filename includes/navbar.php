@@ -17,14 +17,14 @@ if (function_exists('current_role')) {
 
 // תפריטים לפי תפקיד
 $menuGuest = [
-  ["index.html", "בית"],
-  ["OurTeam.html", "הצוות שלנו"],
+  ["index.php", "בית"],
+  ["OurTeam.php", "הצוות שלנו"],
   ["register.php", "הרשמה"],
   ["login.php", "התחברות"],
 ];
 
 $menuStudent = [
-  ["index.html", "בית"],
+  ["index.php", "בית"],
   ["mainDashboard.php", "לוח בקרה"],
   ["courses.php", "קורסים"],
   ["enroll.php", "רישום לקורסים"],
@@ -32,7 +32,7 @@ $menuStudent = [
 ];
 
 $menuStaff = [
-  ["index.html", "בית"],
+  ["index.php", "בית"],
   ["mainDashboard.php", "לוח בקרה"],
   ["studentsManagment.php", "צפייה בסטודנטים"],
   ["courseManagment.php", "ניהול קורסים"],
@@ -41,7 +41,7 @@ $menuStaff = [
 ];
 
 $menuAdmin = [
-  ["index.html", "בית"],
+  ["index.php", "בית"],
   ["mainDashboard.php", "לוח בקרה"],
   ["studentsManagment.php", "ניהול סטודנטים"],
   ["courseManagment.php", "ניהול קורסים"],
@@ -58,7 +58,7 @@ if ($logged) {
 ?>
 <nav class="navbar" id="navbar">
   <div class="nav-container">
-    <a class="logo" href="index.html" aria-label="דף הבית">
+    <a class="logo" href="index.php" aria-label="דף הבית">
       <img class="logo-img" src="assets/images/Logo.png" alt="לוגו CampusPilot" />
     </a>
 

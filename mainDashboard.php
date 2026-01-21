@@ -49,10 +49,15 @@ if ($role === "Admin") {
     $cards = [
         ["title" => "פרופיל משתמש", "desc" => "עדכון פרטים אישיים והגדרות.", "href" => "profile.php"],
         ["title" => "רישום לקורסים", "desc" => "בחירת קורסים והרשמה מהירה.", "href" => "enroll.php"],
-       // ["title" => "הקורסים שלי", "desc" => "צפייה בקורסים אליהם נרשמת ובסטטוס.", "href" => "courseManagment.php"],
-        ["title" => "תמיכה / יצירת קשר", "desc" => "פנייה לתמיכה או לצוות המערכת.", "href" => "OurTeam.html"],
+        ["title" => "תמיכה / יצירת קשר", "desc" => "פנייה לתמיכה או לצוות המערכת.", "href" => "OurTeam.php"],
+
+        // קישורים חיצוניים
+        ["title" => "אגודת הסטודנטים", "desc" => "מידע, פעילויות וזכויות הסטודנטים.", "href" => "https://www.aguda.org.il/", "external" => true],
+        ["title" => "הספרייה", "desc" => "גישה למאגרי מידע ושירותי ספרייה.", "href" => "https://libraries.huji.ac.il/", "external" => true],
+        ["title" => "מלגות", "desc" => "מידע על מלגות ואפשרויות מימון.", "href" => "https://new.huji.ac.il", "external" => true],
     ];
 }
+
 ?>
 <!DOCTYPE html>
 <html lang="he" dir="rtl">
@@ -82,7 +87,12 @@ if ($role === "Admin") {
         <div class="team-card" style="text-align:right;">
           <h3><?= h($c["title"]) ?></h3>
           <p style="margin:8px 0 12px 0;"><?= h($c["desc"]) ?></p>
-          <a class="view-profile-btn" href="<?= h($c["href"]) ?>">כניסה</a>
+         <a class="view-profile-btn"
+   href="<?= h($c["href"]) ?>"
+   <?= isset($c["external"]) ? 'target="_blank"' : '' ?>>
+   כניסה
+</a>
+
         </div>
       <?php endforeach; ?>
     </section>

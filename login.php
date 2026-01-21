@@ -76,14 +76,14 @@ if ($_SERVER["REQUEST_METHOD"] === "POST") {
   <nav class="navbar" id="navbar">
     <div class="nav-container">
 
-      <a class="logo" href="index.html" aria-label="דף הבית">
+      <a class="logo" href="index.php" aria-label="דף הבית">
         <img class="logo-img" src="assets/images/Logo.png" alt="לוגו CampusPilot" />
       </a>
 
       <button class="nav-toggle" id="navToggle" aria-label="פתח תפריט">☰</button>
 
       <ul class="nav-links" id="navLinks">
-        <li><a href="index.html">בית</a></li>
+        <li><a href="index.php">בית</a></li>
         <li><a href="OurTeam.html">הצוות שלנו</a></li>
         <li><a href="register.php">הרשמה</a></li>
         <li><a href="login.php" aria-current="page">התחברות</a></li>
